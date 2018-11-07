@@ -1,8 +1,3 @@
-# Docker-SteamCMD [![Build Status](https://travis-ci.org/theohbrothers/docker-steamcmd.svg?branch=github)](https://travis-ci.org/theohbrothers/docker-steamcmd)
+# Docker-SteamCMD [![Build Status](https://travis-ci.org/theohbrothers/docker-steamcmd.svg?branch=github-debug)](https://github.com/theohbrothers/docker-steamcmd/tree/github-debug)
 
-Image with `steamcmd` and dependencies for building [**Source** / **Goldsource**](https://github.com/theohbrothers/docker-sourceservers) dedicated server images.
-
-## Supported Tags
-
-* `git`, `latest` [(*/git/Dockerfile*)](https://github.com/theohbrothers/docker-steamcmd/blob/github/git/Dockerfile)
-* `minimal` [(*/minimal/Dockerfile*)](https://github.com/theohbrothers/docker-steamcmd/blob/github/minimal/Dockerfile)
+This is the debug branch for [`docker-steamcmd`](https://github.com/theohbrothers/docker-steamcmd).
