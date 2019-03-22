@@ -10,11 +10,11 @@ jobs:
     vmImage: 'ubuntu-16.04'
   strategy:
     matrix:
-      Ubuntu Git:
+      Ubuntu-Git:
         BASE_IMAGE: 'ubuntu:xenial-20181005'
         VARIANT: 'git'
         LATEST: 'true'
-      Ubuntu Minimal:
+      Ubuntu-Minimal:
         BASE_IMAGE: 'ubuntu:xenial-20181005'
         VARIANT: 'minimal'
   workspace:
