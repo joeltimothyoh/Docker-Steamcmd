@@ -51,6 +51,16 @@ jobs:
           --build-arg BASE_IMAGE="${BASE_IMAGE}" \
           -t "${REPOSITORY}:${VARIANT}" \
           --label "game_distributor=steamcmd" \
+          --label "maintainer=Starters Clan" \
+          --label "description=Image with steamcmd and dependencies for building Source / Goldsource dedicated server images." \
+          --label "org.label-schema.build-date=$(date -u +'%Y-%m-%dT%H:%M:%S.%2NZ')" \
+          --label "org.label-schema.name=steamcmd" \
+          --label "org.label-schema.url=https://github.com/startersclan/docker-steamcmd/blob/master/README.md" \
+          --label "org.label-schema.vcs-ref=$(git rev-parse --short HEAD)" \
+          --label "org.label-schema.vcs-url=https://github.com/startersclan/docker-steamcmd" \
+          --label "org.label-schema.vendor=Starters Clan" \
+          --label "org.label-schema.version=${VARIANT}" \
+          --label "org.label-schema.schema-version=1.0" \
           "${VARIANT}/"
       if [ "$LATEST" = 'true' ]; then
           docker tag "${REPOSITORY}:${VARIANT}" "${REPOSITORY}:latest"
