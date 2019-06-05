@@ -1,10 +1,8 @@
 trigger:
   branches:
     include:
+      - build/*
       - master
-  tags:
-    include:
-      - '*'
 pr:
   branches:
     include:
@@ -43,13 +41,13 @@ jobs:
     displayName: System Info
   - script: |
       REPOSITORY="${REGISTRY_NAMESPACE}/${IMAGE_NAME}"
-      COMMIT_TAG=$( echo "${BUILD_SOURCEBRANCH}" | sed -rn 's/^refs\/tags\/(.*)/\1/p' )
+      BUILD_TAG=$( echo "${BUILD_SOURCEBRANCH}" | sed -rn 's/^refs\/heads\/build\/(.*)/\1/p' )
 
       echo "${REGISTRY_PASSWORD}" | docker login -u "${REGISTRY_USER}" --password-stdin
 
       # Set job-scoped variables
       echo "##vso[task.setvariable variable=REPOSITORY]${REPOSITORY}"
-      echo "##vso[task.setvariable variable=COMMIT_TAG]${COMMIT_TAG}"
+      echo "##vso[task.setvariable variable=BUILD_TAG]${BUILD_TAG}"
     env:
       REGISTRY_PASSWORD: $(REGISTRY_PASSWORD)
     displayName: Before Script
@@ -67,8 +65,8 @@ jobs:
       if [ "${LATEST}" = 'true' ]; then
           docker tag "${REPOSITORY}:${VARIANT}" "${REPOSITORY}:latest"
       fi
-      if [ -n "${COMMIT_TAG}" ]; then
-          docker tag "${REPOSITORY}:${VARIANT}" "${REPOSITORY}:${VARIANT}-${COMMIT_TAG}"
+      if [ -n "${BUILD_TAG}" ]; then
+          docker tag "${REPOSITORY}:${VARIANT}" "${REPOSITORY}:${VARIANT}-${BUILD_TAG}"
       fi
       date
       echo; docker images
@@ -87,13 +85,13 @@ jobs:
   - script: |
       set -e
       # Push the image
-      if [ -n "${COMMIT_TAG}" ]; then
+      if [ -n "${BUILD_TAG}" ]; then
           date
           docker push "${REPOSITORY}"
           date
       fi
     displayName: Push SteamCMD Image
-    condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/')
+    condition: startsWith(variables['Build.SourceBranch'], 'refs/heads/build/')
   - script: |
       docker logout
     displayName: After Script
