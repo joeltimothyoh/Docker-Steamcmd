@@ -60,7 +60,7 @@ jobs:
           -t "${REPOSITORY}:${VARIANT}" \
           --label "game_distributor=steamcmd" \
           "${VARIANT}/"
-      docker tag "${REPOSITORY}:${VARIANT}" "${REPOSITORY}:${VARIANT}-${IMAGE_TAG_ARCHIVE}"
+      docker tag "${REPOSITORY}:${VARIANT}" "${REPOSITORY}:${VARIANT}-${IMAGE_ARCHIVE_TAG}"
       if [ "$LATEST" = 'true' ]; then
           docker tag "${REPOSITORY}:${VARIANT}" "${REPOSITORY}:latest"
       fi
