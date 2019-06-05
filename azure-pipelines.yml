@@ -9,6 +9,7 @@ pr:
 
 variables:
   IMAGE_NAME: steamcmd
+  IMAGE_TAG_ARCHIVE: 20181201.0
 
 jobs:
 - job: Linux
@@ -59,6 +60,7 @@ jobs:
           -t "${REPOSITORY}:${VARIANT}" \
           --label "game_distributor=steamcmd" \
           "${VARIANT}/"
+      docker tag "${REPOSITORY}:${VARIANT}" "${REPOSITORY}:${IMAGE_TAG_ARCHIVE}"
       if [ "$LATEST" = 'true' ]; then
           docker tag "${REPOSITORY}:${VARIANT}" "${REPOSITORY}:latest"
       fi
