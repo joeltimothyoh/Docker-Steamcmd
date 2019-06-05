@@ -9,7 +9,7 @@ pr:
 
 variables:
   IMAGE_NAME: steamcmd
-  IMAGE_TAG_ARCHIVE: 20181201.0
+  IMAGE_ARCHIVE_TAG: 20181201.0
 
 jobs:
 - job: Linux
