@@ -9,6 +9,7 @@ pr:
 
 variables:
   IMAGE_NAME: steamcmd
+  BASE_IMAGE: ubuntu:xenial-20181005
 
 jobs:
 - job: Linux
@@ -17,11 +18,9 @@ jobs:
   strategy:
     matrix:
       Ubuntu-Git:
-        BASE_IMAGE: ubuntu:xenial-20181005
         VARIANT: git
         LATEST: true
       Ubuntu-Minimal:
-        BASE_IMAGE: ubuntu:xenial-20181005
         VARIANT: minimal
   workspace:
     clean: all
