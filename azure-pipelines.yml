@@ -37,6 +37,7 @@ jobs:
       docker info
       docker version
     displayName: Display system info
+  - script: printenv
   - script: |
       set -e
       REPOSITORY="${REGISTRY_NAMESPACE}/${IMAGE_NAME}"
