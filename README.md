@@ -11,7 +11,7 @@
 [badge-custom-dockerhub-repo-img]: https://img.shields.io/badge/docker%20hub-startersclan/steamcmd-blue.svg?logo=docker&logoColor=2596EC&color=1B2838&label=&labelColor=&style=flat-square
 [badge-custom-dockerhub-repo-src]: https://hub.docker.com/r/startersclan/steamcmd
 
-Image with `steamcmd` and dependencies for building [**Source** / **Goldsource**](https://github.com/startersclan/docker-sourceservers) dedicated server images.
+Image with [`steamcmd`](https://developer.valvesoftware.com/wiki/SteamCMD) and dependencies for building [**Source** / **Goldsource**](https://github.com/startersclan/docker-sourceservers) dedicated server images.
 
 ## Supported Tags
 
