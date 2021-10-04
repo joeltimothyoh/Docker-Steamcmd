@@ -37,6 +37,10 @@ jobs:
       BUILD_CONTEXT: variants/${{ matrix.TOOL_VARIANT }}
     steps:
     - uses: actions/checkout@v1
+    - name: Display environment variables (linux)
+      run: |
+        set -e
+        env
     - name: Display system info (linux)
       run: |
         set -e
